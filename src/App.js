@@ -8,7 +8,7 @@ import { CreateTodoButton } from './Components/CreateTodoButton';
 
 const todos = [
   { text: "Cortar cebolla", completed: false },
-  { text: "Llorar con la llorona", completed: false },
+  { text: "Llorar con la llorona", completed: true },
   {
     text: "Solucionar la hambruna mundial y no decirle a nadie",
     completed: false,
@@ -26,7 +26,6 @@ function App() {
         ))}
       </TodoList>
       <CreateTodoButton />
-      <button>+</button>
     </React.Fragment>
   );
 }
