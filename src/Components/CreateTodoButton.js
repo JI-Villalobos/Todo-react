@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles/CreateTodoButton.css'
 
-function CreateTodoButton(props) {
+function CreateTodoButton() {
     return(
         <button className="CreateTodoButton">+</button>
     )
