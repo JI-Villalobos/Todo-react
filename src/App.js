@@ -2,35 +2,59 @@ import React from "react";
 import { AppUI } from "./Components/AppUI";
 
 function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
+  const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [item, setItem] = React.useState(initialValue);
 
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
+  React.useEffect(() => {
+    try {
+      setTimeout(() => {
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
 
-  const [item, setItem] = React.useState(parsedItem);
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+        }
+
+        setItem(parsedItem);
+        setLoading(false);
+      }, 1000);
+    } catch (error) {
+      setError(error);
+    }
+  });
 
   const saveItem = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem(itemName, stringifiedTodos);
+    try {
+      const stringifiedTodos = JSON.stringify(newTodos);
+      localStorage.setItem(itemName, stringifiedTodos);
 
-    setItem(newTodos);
+      setItem(newTodos);
+    } catch (error) {
+      setError(error)
+    }
   };
 
-  return [
+  return {
     item,
     saveItem,
-  ];
+    loading,
+    error
+  };
 }
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage();
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
 
-  const [searchValue, setSearchValue] = React.useState("TODOS_V1");
+  const [searchValue, setSearchValue] = React.useState("");
 
   // !! -> means if the value is true (!!todo.completed -> todo.completed == true)
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -65,6 +89,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTodos={totalTodos}
       completedTodos={completedTodos}
       searchValue={searchValue}
