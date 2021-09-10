@@ -15,7 +15,7 @@ function TodoProvider(props) {
   const [openModal, setOpenModal] = React.useState(false)
 
   // !! -> means if the value is true (!!todo.completed -> todo.completed == true)
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
   let searchedTodos = [];
