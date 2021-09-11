@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/JI-Villalobos/Todo-react/static/css/main.e51a4afa.chunk.css",
+    "main.js": "/JI-Villalobos/Todo-react/static/js/main.c07fce9c.chunk.js",
+    "main.js.map": "/JI-Villalobos/Todo-react/static/js/main.c07fce9c.chunk.js.map",
+    "runtime-main.js": "/JI-Villalobos/Todo-react/static/js/runtime-main.5274317e.js",
+    "runtime-main.js.map": "/JI-Villalobos/Todo-react/static/js/runtime-main.5274317e.js.map",
+    "static/js/2.a8363828.chunk.js": "/JI-Villalobos/Todo-react/static/js/2.a8363828.chunk.js",
+    "static/js/2.a8363828.chunk.js.map": "/JI-Villalobos/Todo-react/static/js/2.a8363828.chunk.js.map",
+    "index.html": "/JI-Villalobos/Todo-react/index.html",
+    "static/css/main.e51a4afa.chunk.css.map": "/JI-Villalobos/Todo-react/static/css/main.e51a4afa.chunk.css.map",
+    "static/js/2.a8363828.chunk.js.LICENSE.txt": "/JI-Villalobos/Todo-react/static/js/2.a8363828.chunk.js.LICENSE.txt",
+    "static/media/checked.08385652.svg": "/JI-Villalobos/Todo-react/static/media/checked.08385652.svg",
+    "static/media/remove.562b6f7b.svg": "/JI-Villalobos/Todo-react/static/media/remove.562b6f7b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5274317e.js",
+    "static/js/2.a8363828.chunk.js",
+    "static/css/main.e51a4afa.chunk.css",
+    "static/js/main.c07fce9c.chunk.js"
+  ]
+}
